@@ -34,7 +34,7 @@ function App() {
       <div className="app-container"></div>
 
       <Routes>
-        <Route path="/" element={<Home data={data} isLoading={isLoading} />} />
+        <Route path="/:slug" element={<Home data={data} />} />
       </Routes>
     </div>
   );
