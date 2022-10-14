@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import fetchInfo from "./App.js";
 import "./home.css";
 
 function Home({ data }) {
@@ -11,6 +12,8 @@ function Home({ data }) {
   const [userName, setUserName] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null)
+
+  // fetchInfo()
 
   useEffect(() => {
     const fetchUserBySlug = async () => {
@@ -34,6 +37,7 @@ function Home({ data }) {
       setIsLoading(false)
     }
   }, [])
+
 
 
   useEffect(() => {
