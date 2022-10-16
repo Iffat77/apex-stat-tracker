@@ -9,7 +9,7 @@ function App() {
   const [data, setData] = useState([]);
   const [user, setUser] = useState({})
 
-  const url = "v2/apex/standard/profile/xbl/"
+  const url = "v2/apex/standard/profile/"
   
   const fetchInfo = async () => {
     const config = {
@@ -31,7 +31,7 @@ function App() {
         "TRN-Api-Key": process.env.REACT_APP_API_KEY,
       },
     }
-    const res = await axios.get(url + user.user, config);
+    const res = await axios.get(`${url}${user.platform}${user.user}`, config);
     let newData = (res.data);
     setData(newData);
     console.log(newData, "new data")
@@ -46,7 +46,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     grabUser()
-    console.log(user.user)
+    console.log(user)
     try {
       console.log("runing handle submit");
     } catch (error) {
@@ -71,6 +71,15 @@ function App() {
       <div className="app-container"></div>
       <form onSubmit={handleSubmit}>
       <div className="input-wrapper">
+          <label htmlFor="role">Platform</label>
+          <select className="Platform" name="platform" id="platform" onChange={handleChange}>
+            <option defaultValue="Select Platform">Select Platform</option>
+            <option value="xbl/">Xbox</option>
+            <option value="psn/">Playstation</option>
+            <option value="origin/">Origin</option>
+          </select>
+        </div>
+        <div className="input-wrapper">
           <label htmlFor="enter-user">enter-user</label>
           <input
             required
