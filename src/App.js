@@ -7,7 +7,10 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [user, setUser] = useState({})
 
+  const url = "v2/apex/standard/profile/xbl/"
+  
   const fetchInfo = async () => {
     const config = {
       headers: {
@@ -15,11 +18,25 @@ function App() {
         "TRN-Api-Key": process.env.REACT_APP_API_KEY,
       },
     };
-    const res = await axios.get(`v2/apex/standard/profile/xbl/taffi77`, config);
+    const res = await axios.get(`v2/apex/standard/profile/psn/Daltoosh`, config);
     console.log(res.data);
     setData(res.data);
     setIsLoading(false);
   };
+
+  const grabUser = async () => {
+    const config = {
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        "TRN-Api-Key": process.env.REACT_APP_API_KEY,
+      },
+    }
+    const res = await axios.get(url + user.user, config);
+    let newData = (res.data);
+    setData(newData);
+    console.log(newData, "new data")
+    setIsLoading(false);
+  }
 
   useEffect(() => {
     fetchInfo();
@@ -28,6 +45,8 @@ function App() {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    grabUser()
+    console.log(user.user)
     try {
       console.log("runing handle submit");
     } catch (error) {
@@ -38,10 +57,10 @@ function App() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log(e.target.value)
-    // setUserInfo({
-    //   ...userInfo,
-    //   [name]: value,
-    // });
+    setUser({
+      ...user,
+      [name]: value,
+    });
   };
 
   if (isLoading) {
