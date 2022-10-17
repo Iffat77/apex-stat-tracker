@@ -7,10 +7,10 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
 
-  const url = "v2/apex/standard/profile/"
-  
+  const url = "v2/apex/standard/profile/";
+
   const fetchInfo = async () => {
     const config = {
       headers: {
@@ -18,7 +18,10 @@ function App() {
         "TRN-Api-Key": process.env.REACT_APP_API_KEY,
       },
     };
-    const res = await axios.get(`v2/apex/standard/profile/psn/Daltoosh`, config);
+    const res = await axios.get(
+      `v2/apex/standard/profile/psn/Daltoosh`,
+      config
+    );
     console.log(res.data);
     setData(res.data);
     setIsLoading(false);
@@ -30,23 +33,23 @@ function App() {
         "Content-type": "application/json; charset=UTF-8",
         "TRN-Api-Key": process.env.REACT_APP_API_KEY,
       },
-    }
+    };
     const res = await axios.get(`${url}${user.platform}${user.user}`, config);
-    let newData = (res.data);
+    let newData = res.data;
     setData(newData);
-    console.log(newData, "new data")
+    console.log(newData, "new data");
     setIsLoading(false);
-  }
+  };
 
   useEffect(() => {
     fetchInfo();
     console.log(data);
   }, []);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    grabUser()
-    console.log(user)
+    grabUser();
+    console.log(user);
     try {
       console.log("runing handle submit");
     } catch (error) {
@@ -56,7 +59,7 @@ function App() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(e.target.value)
+    console.log(e.target.value);
     setUser({
       ...user,
       [name]: value,
@@ -70,9 +73,14 @@ function App() {
     <div className="App">
       <div className="app-container"></div>
       <form onSubmit={handleSubmit}>
-      <div className="input-wrapper">
+        <div className="input-wrapper">
           <label htmlFor="role">Platform</label>
-          <select className="Platform" name="platform" id="platform" onChange={handleChange}>
+          <select
+            className="Platform"
+            name="platform"
+            id="platform"
+            onChange={handleChange}
+          >
             <option defaultValue="Select Platform">Select Platform</option>
             <option value="xbl/">Xbox</option>
             <option value="psn/">Playstation</option>
@@ -90,8 +98,8 @@ function App() {
             autoComplete="on"
           />
         </div>
-          <button type="submit">Search for player</button>
-        </form>
+        <button type="submit">Search for player</button>
+      </form>
       <Routes>
         <Route path="/" element={<Home data={data} />} />
       </Routes>
