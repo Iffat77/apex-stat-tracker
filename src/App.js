@@ -72,7 +72,7 @@ function App() {
   return (
     <div className="App">
       <div className="app-container"></div>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label htmlFor="role">Platform</label>
           <select
@@ -98,7 +98,9 @@ function App() {
             autoComplete="on"
           />
         </div>
-        <button type="submit">Search for player</button>
+        <button className="search-btn" type="submit">
+          Search for player
+        </button>
       </form>
       <Routes>
         <Route path="/" element={<Home data={data} />} />

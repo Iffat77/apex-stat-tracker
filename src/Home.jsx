@@ -2,7 +2,6 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import fetchInfo from "./App.js";
 import "./home.css";
 
 function Home({ data }) {
@@ -27,7 +26,7 @@ function Home({ data }) {
     let kills = null;
     let na = "N/A";
 
-    //ERROR HANDLING FOR MISSING FIELDS
+    //ERROR HANDLING FOR IF FIELDS ARE N/A
 
     if (data.data.segments[0].stats.kills) {
       kills = data.data.segments[0].stats.kills.value;
@@ -57,7 +56,7 @@ function Home({ data }) {
     if (playPercentage < 1) {
       playPercentage = 1;
     } else if (playPercentage === "NaN") {
-      playPercentage = "N/A"
+      playPercentage = "N/A";
     }
 
     setCard(data);
@@ -73,15 +72,19 @@ function Home({ data }) {
   return (
     <div>
       <h1>Testing home</h1>
-      <div className="testing-container">
-        <h3>{`Player: ${userName}`}</h3>
-        <img className="player-avatar" src={playerAvatar}></img>
-        <h3>{`Player Level: ${totalLevel}`}</h3>
-        <h3>{`Ranked at number: ${playerRank}`}</h3>
-        <h3>{`Top ${playerPercent}% in kills`}</h3>
-        <h3>{`All Time Kills: ${totalKills}`}</h3>
-        <h3>{`Current Legend: ${legendName}`}</h3>
-        <img src={legendPic}></img>
+      <div className="home-container bg-slate-400">
+        <div className="user-card">
+          <h3>{`Player: ${userName}`}</h3>
+          <img className="player-avatar" src={playerAvatar}></img>
+          <h3>{`Player Level: ${totalLevel}`}</h3>
+          <h3>{`Ranked at number: ${playerRank}`}</h3>
+          <h3>{`Top ${playerPercent}% in kills`}</h3>
+          <h3>{`All Time Kills: ${totalKills}`}</h3>
+        </div>
+        <div className="legend-card">
+          <h3>{`Current Legend: ${legendName}`}</h3>
+          <img src={legendPic}></img>
+        </div>
       </div>
     </div>
   );
