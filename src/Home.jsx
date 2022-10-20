@@ -107,17 +107,22 @@ function Home() {
     });
   };
 
-
   if (isLoading) {
     return (
       <div className="App">
-        <div className="initial-container h-screen w-screen bg-slate-400">
-          <div className="initial-form-container h-1/2 border flex justify-center items-center">
-            <form className="form border border-black " onSubmit={handleSubmit2}>
+        <div className="initial-container h-screen w-screen ">
+          <div className="initial-form-container h-full border flex flex-col items-center">
+            <h1 className="mt-6 mb-28 block text-gray-700 text-base md:text-2xl font-bold">Apex Stat Tracker</h1>
+            <form
+              className="shadow-md rounded h-2/5 w-8/12 md:w-1/2 lg:w-1/4 px-4 lg:px-4 flex flex-col border justify-evenly"
+              onSubmit={handleSubmit2}
+            >
               <div className="input-wrapper">
-                <label htmlFor="role">Platform</label>
+                <label htmlFor="role" className="block text-gray-700 text-sm font-bold mb-2">Platform</label>
                 <select
-                  className="Platform"
+                  className="flex-shrink-0 z-10 inline-flex items-center w-full py-2 px-3
+                  text-sm font-medium text-center text-gray-900 border
+                   border-black rounded"
                   name="platform"
                   id="platform"
                   onChange={handleChange2}
@@ -131,17 +136,32 @@ function Home() {
                 </select>
               </div>
               <div className="input-wrapper">
-                <label htmlFor="enter-user">enter-user</label>
+                <label
+                  htmlFor="enter-user"
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Enter Username
+                </label>
                 <input
                   required
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
+                  leading-tight text-sm font-medium text-center 
+                  focus:outline-none focus:shadow-outline"
                   id="user"
                   name="user"
-                  type="textarea"
+                  placeholder="Enter Username"
+                  type="search"
                   onChange={handleChange2}
                   autoComplete="on"
                 />
               </div>
-              <button className="search-btn" type="submit">
+              <button
+                className="search-btn text-white bg-blue-700 hover:bg-blue-800 
+              focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium
+              rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
+             dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="submit"
+              >
                 Search for player
               </button>
             </form>
