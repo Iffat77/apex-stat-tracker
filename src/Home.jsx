@@ -110,15 +110,22 @@ function Home() {
   if (isLoading) {
     return (
       <div className="App">
-        <div className="initial-container h-screen w-screen ">
-          <div className="initial-form-container h-full border flex flex-col items-center">
-            <h1 className="mt-6 mb-28 block text-gray-700 text-base md:text-2xl font-bold">Apex Stat Tracker</h1>
+        <div className="initial-container h-screen w-screen bg-[#121827]">
+          <div className="initial-form-container h-full flex flex-col items-center">
+            <h1 className="mt-6 mb-28 block text-white text-base md:text-2xl font-bold">
+              Apex Stat Tracker
+            </h1>
             <form
-              className="shadow-md rounded h-2/5 w-8/12 md:w-1/2 lg:w-1/4 px-4 lg:px-4 flex flex-col border justify-evenly"
+              className="shadow-md rounded h-2/5 w-8/12 md:w-1/2 lg:w-1/4 px-4 lg:px-4 flex flex-col border justify-evenly dark:bg-gray-800 dark:border-gray-700"
               onSubmit={handleSubmit2}
             >
               <div className="input-wrapper">
-                <label htmlFor="role" className="block text-gray-700 text-sm font-bold mb-2">Platform</label>
+                <label
+                  htmlFor="role"
+                  className="block text-white text-sm font-bold mb-2"
+                >
+                  Platform
+                </label>
                 <select
                   className="flex-shrink-0 z-10 inline-flex items-center w-full py-2 px-3
                   text-sm font-medium text-center text-gray-900 border
@@ -138,7 +145,7 @@ function Home() {
               <div className="input-wrapper">
                 <label
                   htmlFor="enter-user"
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-white text-sm font-bold mb-2"
                 >
                   Enter Username
                 </label>
@@ -172,49 +179,86 @@ function Home() {
   }
   return (
     <div>
-      <div className="home-container bg-slate-400">
-        <h1>Testing home</h1>
-        <form className="form" onSubmit={handleSubmit2}>
-          <div className="input-wrapper">
-            <label htmlFor="role">Platform</label>
-            <select
-              className="Platform"
-              name="platform"
-              id="platform"
-              onChange={handleChange2}
+      <div className=" h-screen w-screen overflow-scroll bg-[#121827]">
+        <div className="home-container overflow-y-scroll h-3/4 flex flex-col items-center space-y-8">
+          <h1 className="mt-8 block text-white text-base md:text-2xl font-bold">
+            Apex Stats Tracker
+          </h1>
+          <form
+            className="shadow-md rounded h-2/5 w-8/12 md:w-1/2 lg:w-1/4 px-4 lg:px-4 flex flex-col border justify-evenly dark:bg-gray-800 dark:border-gray-700"
+            onSubmit={handleSubmit2}
+          >
+            <div className="input-wrapper">
+              <label
+                htmlFor="role"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              />
+              <select
+                className="flex-shrink-0 z-10 inline-flex items-center w-full py-2 px-3
+                text-sm font-medium text-center text-gray-900 border
+                 border-black rounded"
+                name="platform"
+                id="platform"
+                onChange={handleChange2}
+              >
+                <option defaultValue="Select Platform">Select Platform</option>
+                <option value="xbl/">Xbox</option>
+                <option value="psn/">Playstation</option>
+                <option value="origin/">Origin</option>
+              </select>
+            </div>
+            <div className="input-wrapper">
+              <label htmlFor="enter-user" />
+              <input
+                required
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
+                leading-tight text-sm font-medium text-center 
+                focus:outline-none focus:shadow-outline"
+                id="user"
+                name="user"
+                placeholder="Enter Username"
+                type="search"
+                onChange={handleChange2}
+                autoComplete="on"
+              />
+            </div>
+            <button
+              className="search-btn text-white bg-blue-700 hover:bg-blue-800 
+              font-medium
+              rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
+             dark:bg-blue-600 dark:hover:bg-blue-700"
+              type="submit"
             >
-              <option defaultValue="Select Platform">Select Platform</option>
-              <option value="xbl/">Xbox</option>
-              <option value="psn/">Playstation</option>
-              <option value="origin/">Origin</option>
-            </select>
-          </div>
-          <div className="input-wrapper">
-            <label htmlFor="enter-user">enter-user</label>
-            <input
-              required
-              id="user"
-              name="user"
-              type="textarea"
-              onChange={handleChange2}
-              autoComplete="on"
-            />
-          </div>
-          <button className="search-btn" type="submit">
-            Search for player
-          </button>
-        </form>
-        <div className="user-card">
-          <h3>{`Player: ${userName}`}</h3>
-          <img className="player-avatar" src={playerAvatar}></img>
-          <h3>{`Player Level: ${totalLevel}`}</h3>
-          <h3>{`Ranked at number: ${playerRank}`}</h3>
-          <h3>{`Top ${playerPercent}% in kills`}</h3>
-          <h3>{`All Time Kills: ${totalKills}`}</h3>
+              Search for player
+            </button>
+          </form>
         </div>
-        <div className="legend-card">
-          <h3>{`Current Legend: ${legendName}`}</h3>
-          <img src={legendPic}></img>
+
+
+        <div className="card-container flex flex-col items-center space-y-8 overflow-y-scroll mb-8 ">
+          <div className="rounded h-2/5 lg:h-3/5 w-11/12 md:w-1/2 lg:w-1/2 px-4 lg:px-4 flex flex-col md:flex-row lg:flex-row items-center border justify-evenly dark:bg-gray-800 dark:border-gray-700 space-x-4">
+            <div className="img-container p-4 flex justify-center h-full w-full ">
+              <img
+                className="player-avatar object-cover rounded-md h-1/2 w-1/2 md:w-full"
+                src={playerAvatar}
+              ></img>
+            </div>
+            <div className="palyer-info w-full lg:h-1/3 p-2">
+            <h3 className=" p-3 block text-white text-base md:text-xl lg:text-2xl font-bold ">{`Player: ${userName}`}</h3>
+            <ul className="player-info-list block text-white text-base md:text-lg font-semibold">
+              <li>{`Player Level: ${totalLevel}`}</li>
+              <li>{`Ranked at number: ${playerRank}`}</li>
+              <li>{`Top ${playerPercent}% in kills`}</li>
+              <li>{`All Time Kills: ${totalKills}`}</li>
+              </ul>
+              </div> 
+          </div>
+          <div className="legend-card shadow-md rounded h-2/5 w-11/12 md:w-1/2 lg:w-1/2 px-4 lg:px-4 flex flex-col items-center border justify-evenly dark:bg-gray-800 dark:border-gray-700 ">
+            <h3 className="p-3 block text-white text-base md:text-2xl font-bold">{`Current Legend: ${legendName}`}</h3>
+            <div className="img-container h-3/4 w-3/4 ">
+              <img classname="object-cover rounded-md" src={legendPic}></img>
+            </div>
+          </div>
         </div>
       </div>
     </div>
