@@ -16,6 +16,8 @@ function Home() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
+  const [err, setErr] = useState();
+  const [isErr, setIsErr] = useState(false)
   const url = "v2/apex/standard/profile/";
 
   useEffect(() => {
@@ -29,9 +31,14 @@ function Home() {
       let playRank = null;
       let playPercentage = null;
       let kills = null;
+      let errorHandler = null;
       let na = "N/A";
 
       // ERROR HANDLING FOR IF FIELDS ARE N/A
+
+      // if (error.response.data.errors[0].message) {
+      //   console.log(error.response.data.errors[0].message)
+      // }
 
       if (data.data.segments[0].stats.kills) {
         kills = data.data.segments[0].stats.kills.value;
@@ -82,8 +89,29 @@ function Home() {
         "TRN-Api-Key": process.env.REACT_APP_API_KEY,
       },
     };
-    const res = await axios.get(`${url}${user.platform}${user.user}`, config);
-    // console.log(res)
+    const res = await axios.get(`${url}${user.platform}${user.user}`, config)
+    .catch(function (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        // console.log(error.response.data);
+        console.log(error.response.data.errors[0].message)
+        // console.log(error.response.status);
+        // console.log(error.response.headers);
+        setErr(error.response.data.errors[0].message)
+        setIsErr(true)
+      } else if (error.request) {
+        // The request was made but no response was received
+        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+        // http.ClientRequest in node.js
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    });
+    console.log(err, 'here')
     setData(res.data);
     setIsLoading(false);
   };
@@ -107,7 +135,8 @@ function Home() {
     });
   };
 
-  if (isLoading) {
+
+  if (isLoading || isErr) {
     return (
       <div className="App">
         <div className="initial-container h-screen w-screen bg-[#121827]">
@@ -115,6 +144,7 @@ function Home() {
             <h1 className="mt-6 mb-28 block text-white text-base md:text-2xl font-bold">
               Apex Stat Tracker
             </h1>
+            <h2 className=" text-red-400">{err}</h2>
             <form
               className="shadow-md rounded h-2/5 w-8/12 md:w-1/2 lg:w-1/4 px-4 lg:px-4 flex flex-col border justify-evenly dark:bg-gray-800 dark:border-gray-700"
               onSubmit={handleSubmit2}
@@ -236,7 +266,7 @@ function Home() {
 
 
         <div className="card-container flex flex-col items-center space-y-8 overflow-y-scroll mb-8 ">
-          <div className="rounded h-2/5 lg:h-3/5 w-11/12 md:w-1/2 lg:w-1/2 px-4 lg:px-4 flex flex-col md:flex-row lg:flex-row items-center border justify-evenly dark:bg-gray-800 dark:border-gray-700 space-x-4">
+          <div className="rounded h-2/5 lg:h-3/5 w-3/5 md:w-1/2 lg:w-1/2 px-4 lg:px-4 flex flex-col md:flex-row lg:flex-row items-center border justify-evenly dark:bg-gray-800 dark:border-gray-700 space-x-4">
             <div className="img-container p-4 flex justify-center h-full w-full ">
               <img
                 className="player-avatar object-cover rounded-md h-1/2 w-1/2 md:w-full"
@@ -253,7 +283,7 @@ function Home() {
               </ul>
               </div> 
           </div>
-          <div className="legend-card shadow-md rounded h-2/5 w-11/12 md:w-1/2 lg:w-1/2 px-4 lg:px-4 flex flex-col items-center border justify-evenly dark:bg-gray-800 dark:border-gray-700 ">
+          <div className="legend-card shadow-md rounded h-2/5 w-1/12 md:w-1/2 lg:w-1/2 px-4 lg:px-4 flex flex-col items-center border justify-evenly dark:bg-gray-800 dark:border-gray-700 ">
             <h3 className="p-3 block text-white text-base md:text-2xl font-bold">{`Current Legend: ${legendName}`}</h3>
             <div className="img-container h-3/4 w-3/4 ">
               <img classname="object-cover rounded-md" src={legendPic}></img>
