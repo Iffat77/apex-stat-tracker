@@ -111,6 +111,9 @@ function Home() {
       }
       console.log(error.config);
     });
+    if (isErr) {
+      setIsErr(false)
+    }
     console.log(err, 'here')
     setData(res.data);
     setIsLoading(false);
