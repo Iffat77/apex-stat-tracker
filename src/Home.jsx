@@ -149,7 +149,7 @@ function Home() {
             </h1>
             <h2 className=" text-red-400">{err}</h2>
             <form
-              className="shadow-md rounded h-2/5 w-8/12 md:w-1/2 lg:w-1/4 px-4 lg:px-4 flex flex-col border justify-evenly dark:bg-gray-800 dark:border-gray-700"
+              className="shadow-md rounded h-2/5 w-8/12 md:w-1/2 lg:w-1/4 px-4 lg:px-4 flex flex-col justify-evenly border dark:bg-gray-800 dark:border-gray-700"
               onSubmit={handleSubmit2}
             >
               <div className="input-wrapper">
@@ -268,17 +268,18 @@ function Home() {
         </div>
 
 
-        <div className="card-container flex flex-col items-center space-y-8 overflow-y-scroll mb-8 ">
-          <div className="rounded h-2/5 lg:h-3/5 w-3/5 md:w-1/2 lg:w-1/2 px-4 lg:px-4 flex flex-col md:flex-row lg:flex-row items-center border justify-evenly dark:bg-gray-800 dark:border-gray-700 space-x-4">
+        <div className="card-container grid gird-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3  lg:gap-x-6 gap-x-4 lg:gap-y-2 gap-y-1  lg:col-span-3 overflow-scroll place-items-center">
+          <div className="w-9/12 lg:group-hover:scale-105 group-hover:shadow-me duration-300 rounded-xl square aspect-w-1 aspect-h-1 overflow-hidden bg-gray-700 shadow-me">
+            <div>
             <div className="img-container p-4 flex justify-center h-full w-full ">
               <img
-                className="player-avatar object-cover rounded-md h-1/2 w-1/2 md:w-full"
+                className="player-avatar object-center object-contain rounded-xl h-1/2 w-1/2 "
                 src={playerAvatar}
               ></img>
             </div>
-            <div className="palyer-info w-full lg:h-1/3 p-2">
-            <h3 className=" p-3 block text-white text-base md:text-xl lg:text-2xl font-bold ">{`Player: ${userName}`}</h3>
-            <ul className="player-info-list block text-white text-base md:text-lg font-semibold">
+            <div className="palyer-info h-full flex-col w-full flex justify-center items-center space-y-3 font-maven p-2">
+            <p className=" p-3 block text-white text-base md:text-lg lg:text-2xl font-bold ">{`Player: ${userName}`}</p>
+            <ul className="player-info-list text-white text-base md:text-base font-medium flex flex-col space-y-2 ">
               <li>{`Player Level: ${totalLevel}`}</li>
               <li>{`Ranked at number: ${playerRank}`}</li>
               <li>{`Top ${playerPercent}% in kills`}</li>
@@ -286,12 +287,15 @@ function Home() {
               </ul>
               </div> 
           </div>
-          <div className="legend-card shadow-md rounded h-2/5 w-1/12 md:w-1/2 lg:w-1/2 px-4 lg:px-4 flex flex-col items-center border justify-evenly dark:bg-gray-800 dark:border-gray-700 ">
-            <h3 className="p-3 block text-white text-base md:text-2xl font-bold">{`Current Legend: ${legendName}`}</h3>
-            <div className="img-container h-3/4 w-3/4 ">
-              <img classname="object-cover rounded-md" src={legendPic}></img>
-            </div>
           </div>
+          {/* <div className="legend-card w-full relative fade-in lg:group-hover:scale-105 group-hover:shadow-me duration-300 rounded-xl square aspect-w-1 aspect-h-1 overflow-hidden bg-gray-100 shadow-me">
+            <h3 className="p-3 text-white text-base md:text-2xl font-bold">{`Current Legend: ${legendName}`}</h3>
+            <div className="img-container animate-flash-once
+            w-full h-full bg-white opacity-0 absolute z-50">
+
+              <img className="duration-300 w-full h-full object-center object-cover absolute" src={legendPic}></img>
+            </div>
+          </div> */}
         </div>
       </div>
     </div>
