@@ -142,7 +142,7 @@ function Home() {
   if (isLoading || isErr) {
     return (
       <div className="App">
-        <div className="initial-container h-screen w-screen bg-[#121827]">
+        <div className="initial-container h-screen w-screen bg-gradient-to-br from-gray-900 to-gray-600 bg-gradient-to-r ">
           <div className="initial-form-container  h-full flex flex-col items-center space-y-8">
             <h1 className=" mt-20 mb-28 block text-white text-base md:text-2xl font-bold">
               Apex Stat Tracker
@@ -205,7 +205,7 @@ function Home() {
   }
   return (
     <div>
-      <div className=" h-screen w-screen overflow-scroll bg-[#121827] flex flex-col space-y-10">
+      <div className=" h-screen w-screen overflow-scroll bg-gradient-to-br from-gray-900 to-gray-600 bg-gradient-to-r flex flex-col space-y-10">
           <h1 className="mt-8 block text-white text-base md:text-2xl font-bold text-center">
             Apex Stats Tracker
           </h1>

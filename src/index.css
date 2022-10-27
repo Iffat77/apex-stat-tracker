@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Comfortaa:wght@300&family=Concert+One&family=Maven+Pro:wght@400;600&family=Russo+One&family=Source+Code+Pro:wght@300;400&family=Titan+One&display=swap');
 
 body {
+/* background-color: rgb(63, 63, 70);
+background-image: radial-gradient(at 58% 52%, rgb(254, 249, 195) 0, transparent 98%), radial-gradient(at 79% 60%, rgb(54, 83, 20) 0, transparent 93%), radial-gradient(at 7% 90%, rgb(115, 115, 115) 0, transparent 66%), radial-gradient(at 96% 87%, rgb(51, 65, 85) 0, transparent 13%), radial-gradient(at 51% 57%, rgb(212, 212, 216) 0, transparent 51%), radial-gradient(at 77% 99%, rgb(163, 230, 53) 0, transparent 44%); */
+
+/* background-color: rgb(249, 168, 212);
+background-image: radial-gradient(at 6% 94%, rgb(231, 229, 228) 0, transparent 73%), radial-gradient(at 13% 85%, rgb(4, 120, 87) 0, transparent 67%), radial-gradient(at 37% 49%, rgb(148, 163, 184) 0, transparent 21%), radial-gradient(at 17% 32%, rgb(79, 70, 229) 0, transparent 75%), radial-gradient(at 40% 69%, rgb(51, 65, 85) 0, transparent 43%), radial-gradient(at 66% 22%, rgb(54, 83, 20) 0, transparent 61%); */
+
+/* background-color: rgb(113, 63, 18);
+background-image: radial-gradient(at 2% 48%, rgb(167, 243, 208) 0, transparent 97%), radial-gradient(at 8% 27%, rgb(212, 212, 212) 0, transparent 73%), radial-gradient(at 66% 11%, rgb(74, 222, 128) 0, transparent 64%), radial-gradient(at 47% 86%, rgb(21, 94, 117) 0, transparent 70%), radial-gradient(at 31% 46%, rgb(253, 186, 116) 0, transparent 29%), radial-gradient(at 65% 76%, rgb(190, 18, 60) 0, transparent 96%); */
 
 }
 
