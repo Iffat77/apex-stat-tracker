@@ -264,7 +264,7 @@ function Home() {
 
 
         <div className="card-container grid gird-cols-2 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 lg:gap-x-6 gap-x-4 gap-y-4 lg:gap-y-2 lg:col-span-3 place-items-center">
-          <div className="w-9/12 h-full rounded-xl square aspect-w-1 aspect-h-1 bg-gray-700 shadow-me p-4">
+          <div className="w-9/12 h-full rounded-xl square aspect-w-1 aspect-h-1 bg-gray-700 shadow-lg p-4 shadow-cyan-500/50">
             <div>
             <div className="img-container p-4 flex justify-center h-full w-full ">
               <img
@@ -274,11 +274,11 @@ function Home() {
             </div>
             <div className="palyer-info h-full flex-col w-full flex justify-center items-center space-y-3 font-maven p-2">
             <p className=" p-3 block text-white text-base md:text-lg lg:text-2xl font-bold ">{`Player: ${userName}`}</p>
-            <ul className="player-info-list text-white text-base md:text-base font-medium flex flex-col space-y-2 ">
-              <li>{`Player Level: ${totalLevel}`}</li>
-              <li>{`Ranked at number: ${playerRank}`}</li>
-              <li>{`Top ${playerPercent}% in kills`}</li>
-              <li>{`All Time Kills: ${totalKills}`}</li>
+            <ul className="player-info-list text-white text-base md:text-base font-medium flex flex-col items-center space-y-2 ">
+              <li className="border-2 border-green-500 rounded p-1">{`Player Level: ${totalLevel}`}</li>
+              <li className="border-2 border-green-500 rounded p-1">{`Ranked at number: ${playerRank}`}</li>
+              <li className="border-2 border-green-500 rounded p-1">{`Top ${playerPercent}% in kills`}</li>
+              <li className="border-2 border-green-500 rounded p-1">{`All Time Kills: ${totalKills}`}</li>
               </ul>
               </div> 
           </div>
@@ -289,7 +289,7 @@ function Home() {
             <div className="flex flex-col items-center" >
             <p className="p-3 text-white text-base md:text-lg lg:text-2xl font-bold ">{`Current Legend: ${legendName}`}</p>
             <div className="img-container p-4 flex justify-center h-full w-full">
-              <img className="legend-card-img object-center object-contain rounded-xl h-4/5 w-4/5 " src={legendPic}></img>
+              <img className=" border-y-2 border-yellow-500 legend-card-img object-center object-contain rounded-xl h-4/5 w-4/5 " src={legendPic}></img>
               </div>
             </div>
           </div>
