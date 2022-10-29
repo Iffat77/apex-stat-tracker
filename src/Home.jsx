@@ -205,14 +205,22 @@ function Home() {
   }
   return (
     <div>
-      <div className=" h-screen w-screen overflow-scroll bg-gradient-to-br from-gray-900 to-gray-600 bg-gradient-to-r flex flex-col space-y-10">
-          <h1 className="mt-8 block text-white text-base md:text-2xl font-bold text-center">
+      {/* bg-gradient-to-br from-gray-900 to-gray-600 bg-gradient-to-r  */}
+      {/* bg-gradient-to-tl from-cyan-900 via-green-600 to-green-500  */}
+      <div className=" h-screen w-screen overflow-scroll flex flex-col space-y-28 
+      bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-green-200 via-gray-100 to-slate-200
+      ">
+        <div className="pb-8 rounded-b-xl flex justify-center shadow-md bg-[]">
+          <h1 className="mt-8 block text-white text-base md:text-2xl 
+          font-semibold text-center border py-2 px-4
+          rounded-xl shadow-sm bg-[#84d36c]">
             Apex Stats Tracker
           </h1>
+        </div>
         <div className="home-container h-full flex flex-col items-center justify-center space-y-8">
           <div className="form-container w-9/12 md:w-1/2 lg:w-1/3 xl:w-1/4  ">
           <form
-            className="shadow-md rounded-xl p-8 space-y-4 flex flex-col border justify-evenly dark:bg-gray-800 dark:border-gray-700"
+            className="shadow-md rounded-xl p-8 space-y-4 flex flex-col border justify-evenly bg-[#eff4f2]"
             onSubmit={handleSubmit2}
           >
             <div className="input-wrapper">
@@ -222,8 +230,8 @@ function Home() {
               />
               <select
                 className="flex-shrink-0 z-10 inline-flex items-center w-full py-2 px-3
-                text-sm font-medium text-center text-gray-900 border
-                 border-black rounded"
+                text-sm font-medium text-center text-gray-400 border
+                  rounded"
                 name="platform"
                 id="platform"
                 onChange={handleChange2}
@@ -248,12 +256,12 @@ function Home() {
                 onChange={handleChange2}
                 autoComplete="on"
               />
-            </div>
+              </div>
+              {/* [#f26419] orange */}
             <button
-              className="search-btn text-white bg-blue-700 hover:bg-blue-800 
+                className="search-btn text-white bg-[#84d36c] hover:bg-[#293F14]
               font-medium
-              rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
-             dark:bg-blue-600 dark:hover:bg-blue-700"
+              rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
               type="submit"
             >
               Search for player
@@ -264,32 +272,32 @@ function Home() {
 
 
         <div className="card-container grid gird-cols-2 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 lg:gap-x-6 gap-x-4 gap-y-4 lg:gap-y-2 lg:col-span-3 place-items-center">
-          <div className="w-9/12 h-full rounded-xl square aspect-w-1 aspect-h-1 bg-gray-700 shadow-lg p-4 shadow-cyan-500/50">
-            <div>
-            <div className="img-container p-4 flex justify-center h-full w-full ">
+          <div className="w-9/12 h-full rounded-xl square aspect-w-1 aspect-h-1 bg-[#93a29b] shadow-lg p-4 ">
+            <div className=" flex flex-col justify-center ">
+            <div className="img-container p-4 flex justify-center h-full w-full md:pt-10 lg:pt-10 xl:pt-10 ">
               <img
-                className="player-avatar object-center object-contain rounded-xl h-1/2 w-1/2 "
+                className="player-avatar object-center object-contain rounded-xl h-1/2 w-1/2  "
                 src={playerAvatar}
               ></img>
             </div>
-            <div className="palyer-info h-full flex-col w-full flex justify-center items-center space-y-3 font-maven p-2">
+            <div className="palyer-info h-full flex-col w-full flex justify-center items-center space-y-3 font-maven p-2 ">
             <p className=" p-3 block text-white text-base md:text-lg lg:text-2xl font-bold ">{`Player: ${userName}`}</p>
-            <ul className="player-info-list text-white text-base md:text-base font-medium flex flex-col items-center space-y-2 ">
-              <li className="border-2 border-green-500 rounded p-1">{`Player Level: ${totalLevel}`}</li>
-              <li className="border-2 border-green-500 rounded p-1">{`Ranked at number: ${playerRank}`}</li>
-              <li className="border-2 border-green-500 rounded p-1">{`Top ${playerPercent}% in kills`}</li>
-              <li className="border-2 border-green-500 rounded p-1">{`All Time Kills: ${totalKills}`}</li>
+            <ul className="player-info-list text-white text-base md:text-base font-medium flex flex-col items-center">
+              <li className="rounded px-2">{`Player Level: ${totalLevel}`}</li>
+              <li className="rounded px-2">{`Ranked at number: ${playerRank}`}</li>
+              <li className="rounded px-2">{`Top ${playerPercent}% in kills`}</li>
+              <li className="rounded px-2">{`All Time Kills: ${totalKills}`}</li>
               </ul>
               </div> 
           </div>
           </div>
 
 
-          <div className="legend-card w-9/12 h-full rounded-xl square aspect-w-1 aspect-h-1 bg-gray-700 shadow-me font-maven p-4">
+          <div className="legend-card w-9/12 h-full rounded-xl square aspect-w-1 aspect-h-1 bg-[#93a29b] shadow-lg font-maven p-4 ">
             <div className="flex flex-col items-center" >
             <p className="p-3 text-white text-base md:text-lg lg:text-2xl font-bold ">{`Current Legend: ${legendName}`}</p>
             <div className="img-container p-4 flex justify-center h-full w-full">
-              <img className=" border-y-2 border-yellow-500 legend-card-img object-center object-contain rounded-xl h-4/5 w-4/5 " src={legendPic}></img>
+              <img className=" legend-card-img object-center object-contain rounded-xl " src={legendPic}></img>
               </div>
             </div>
           </div>
