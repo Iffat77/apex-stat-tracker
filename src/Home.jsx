@@ -90,6 +90,7 @@ function Home() {
       },
     };
     const res = await axios.get(`${url}${user.platform}${user.user}`, config)
+      console.log(res)
     .catch(function (error) {
       if (error.response) {
         // The request was made and the server responded with a status code
