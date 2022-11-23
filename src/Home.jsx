@@ -90,7 +90,6 @@ function Home() {
       },
     };
     const res = await axios.get(`${url}${user.platform}${user.user}`, config)
-      console.log(res)
     .catch(function (error) {
       if (error.response) {
         // The request was made and the server responded with a status code
@@ -206,6 +205,7 @@ function Home() {
   }
   return (
     <div>
+      {console.log(data)}
       {/* bg-gradient-to-br from-gray-900 to-gray-600 bg-gradient-to-r  */}
       {/* bg-gradient-to-tl from-cyan-900 via-green-600 to-green-500  */}
       <div className=" h-screen w-screen overflow-scroll flex flex-col space-y-28 
