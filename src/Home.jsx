@@ -360,6 +360,7 @@ function Home() {
   const [isErr, setIsErr] = useState(false)
   const url = "https://public-api.tracker.gg/v2/apex/standard/profile/";
   // https://cors-anywhere.herokuapp.com/
+  // "proxy": "https://public-api.tracker.gg",
   // https://public-api.tracker.gg/
   useEffect(() => {
     if (data) {
