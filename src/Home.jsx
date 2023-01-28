@@ -432,7 +432,7 @@ function Home() {
         "TRN-Api-Key": process.env.REACT_APP_API_KEY,
       },
     };
-    const res = await axios.get(`${url}${user.platform}${user.user}`, config)
+    const res = await axios.get(`https://public-api.tracker.gg/v2/apex/standard/profile/${user.platform}${user.user}`, config)
     .catch(function (error) {
       if (error.response) {
         // The request was made and the server responded with a status code
