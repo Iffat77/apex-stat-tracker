@@ -358,7 +358,7 @@ function Home() {
   const [data, setData] = useState();
   const [err, setErr] = useState();
   const [isErr, setIsErr] = useState(false)
-  const url = "v2/apex/standard/profile/";
+  const url = "https://public-api.tracker.gg/v2/apex/standard/profile/";
   // https://cors-anywhere.herokuapp.com/
   // https://public-api.tracker.gg/
   useEffect(() => {
