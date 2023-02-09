@@ -26,13 +26,22 @@ function Home() {
 
       let legend = data.data.metadata.activeLegendName;
       let level = data.data.segments[0].stats.level.value;
-      let pic = data.data.segments[1].metadata.imageUrl;
+      let pic;
       let playerPic = data.data.platformInfo.avatarUrl;
       let playRank = null;
       let playPercentage = null;
       let kills = null;
       let errorHandler = null;
       let na = "N/A";
+
+      let segArr = data.data.segments;
+
+      for (let i = 1; i < segArr.length; i++) {
+        if (segArr[i].metadata.name === legend) {
+          console.log(segArr[i].metadata.name, "here");
+          pic = segArr[i].metadata.imageUrl;
+        }
+      }
 
       // ERROR HANDLING FOR IF FIELDS ARE N/A
       if (data.data.segments[0].stats.kills) {
@@ -56,7 +65,7 @@ function Home() {
         playPercentage = na;
         setPlayerPercent(playPercentage);
       }
-// ----------------------------------
+      // ----------------------------------
 
       playPercentage = parseFloat(playPercentage).toFixed(1);
 
@@ -82,6 +91,7 @@ function Home() {
     );
     if (res.data.data) {
       setData(res.data);
+      console.log(data);
     } else if (res.data.errors) {
       setErr(res.data.errors[0].message);
       setIsErr(true);
@@ -98,8 +108,7 @@ function Home() {
     e.preventDefault();
     grabUser();
     try {
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   const handleChange2 = (e) => {
