@@ -38,7 +38,6 @@ function Home() {
 
       for (let i = 1; i < segArr.length; i++) {
         if (segArr[i].metadata.name === legend) {
-          console.log(segArr[i].metadata.name, "here");
           pic = segArr[i].metadata.imageUrl;
         }
       }
@@ -91,7 +90,6 @@ function Home() {
     );
     if (res.data.data) {
       setData(res.data);
-      console.log(data);
     } else if (res.data.errors) {
       setErr(res.data.errors[0].message);
       setIsErr(true);
