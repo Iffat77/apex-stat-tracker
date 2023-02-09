@@ -1,7 +1,6 @@
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import "./home.css";
 
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -82,12 +81,9 @@ function Home() {
     let res = await axios.get(
       `${apiUrl}?plat=${user.platform}&user=${user.user}`
     );
-    console.log(res, "res here");
     if (res.data.data) {
       setData(res.data);
-      console.log(data);
     } else if (res.data.errors) {
-      console.log(res.data.errors[0].message, "error is here");
       setErr(res.data.errors[0].message);
       setIsErr(true);
     }
@@ -102,11 +98,8 @@ function Home() {
   const handleSubmit2 = async (e) => {
     e.preventDefault();
     grabUser();
-    console.log(user);
     try {
-      console.log("runing handle submit");
     } catch (error) {
-      console.error(error);
     }
   };
 
@@ -186,7 +179,6 @@ function Home() {
   }
   return (
     <div>
-      {console.log(data)}
       {/* bg-gradient-to-br from-gray-900 to-gray-600 bg-gradient-to-r  */}
       {/* bg-gradient-to-tl from-cyan-900 via-green-600 to-green-500  */}
       <div
