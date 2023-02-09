@@ -35,7 +35,6 @@ function Home() {
       let na = "N/A";
 
       // ERROR HANDLING FOR IF FIELDS ARE N/A
-
       if (data.data.segments[0].stats.kills) {
         kills = data.data.segments[0].stats.kills.value;
         setTotalKills(kills);
@@ -57,7 +56,7 @@ function Home() {
         playPercentage = na;
         setPlayerPercent(playPercentage);
       }
-      // ----------------------------------
+// ----------------------------------
 
       playPercentage = parseFloat(playPercentage).toFixed(1);
 
