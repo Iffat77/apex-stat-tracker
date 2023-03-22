@@ -1,6 +1,6 @@
 # <strong> [Apex Stat Tracker](https://apexstatstraker.netlify.app/)</strong>
 
-![Wireframe](https://res.cloudinary.com/dsk8h1adc/image/upload/v1676404867/Screen_Shot_2023-02-14_at_3.00.48_PM_ywtvwr.png)
+![Wireframe](https://res.cloudinary.com/dsk8h1adc/image/upload/v1679508937/Screen_Shot_2023-03-22_at_2.14.15_PM_fzoy8x.png)
 
 # Project Overview
 
