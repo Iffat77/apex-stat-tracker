@@ -142,7 +142,7 @@ function Home() {
                     className="block text-gray-700 text-sm font-bold mb-2"
                   />
                   <select
-                    className="select w-full pr-3 text-center text-white"
+                    className="select w-full pr-3 text-center bg-[#242e3a9d] text-white"
                     name="platform"
                     id="platform"
                     onChange={handleChange2}
@@ -159,7 +159,7 @@ function Home() {
                   <label htmlFor="enter-user" />
                   <input
                     required
-                    className="input input-bordered w-full text-center text-white"
+                    className="input input-bordered w-full text-center bg-[#242e3a9d] text-white"
                     id="user"
                     name="user"
                     placeholder="Enter Username"
@@ -206,7 +206,7 @@ function Home() {
                     className="block text-gray-700 text-sm font-bold mb-2"
                   />
                   <select
-                    className="select w-full pr-3 text-center text-white"
+                    className="select w-full pr-3 text-center bg-[#242e3a9d] text-white"
                     name="platform"
                     id="platform"
                     onChange={handleChange2}
@@ -223,7 +223,7 @@ function Home() {
                   <label htmlFor="enter-user" />
                   <input
                     required
-                    className="input input-bordered w-full text-center text-white"
+                    className="input input-bordered w-full text-center bg-[#242e3a9d] text-white"
                     id="user"
                     name="user"
                     placeholder="Enter Username"
