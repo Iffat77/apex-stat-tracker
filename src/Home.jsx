@@ -142,12 +142,12 @@ function Home() {
                     className="block text-gray-700 text-sm font-bold mb-2"
                   />
                   <select
-                    className="select w-full pr-3 text-center bg-[#242e3a9d] text-white"
+                    className="select w-full pr-3 text-center bg-[#242e3a9d] text-white "
                     name="platform"
                     id="platform"
                     onChange={handleChange2}
                   >
-                    <option disabled selected defaultValue="Select Platform">
+                    <option className="text-center" disabled selected defaultValue="Select Platform">
                       Select Platform
                     </option>
                     <option value="xbl">Xbox</option>
@@ -211,7 +211,7 @@ function Home() {
                     id="platform"
                     onChange={handleChange2}
                   >
-                    <option disabled selected defaultValue="Select Platform">
+                    <option className="text-center" disabled selected defaultValue="Select Platform">
                       Select Platform
                     </option>
                     <option value="xbl">Xbox</option>
