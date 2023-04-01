@@ -131,7 +131,12 @@ function Home() {
               Apex Stat Tracker
             </h1>
             <h2 className=" text-red-400">{err}</h2>
+            <div className="bg-gray-600 rounded-md">
+              <p className="p-1 mx-1 text-sm md:text-lg md:p-2  leading-8  text-green-300">Hint: For platform try: Origin, For username try: shroud </p>
+
+            </div>
             <div className="form-container w-9/12 md:w-1/2 lg:w-1/3 xl:w-1/4  ">
+
               <form
                 className="shadow-md rounded-xl p-8 space-y-4 flex flex-col border justify-evenly dark:bg-gray-800 dark:border-gray-700"
                 onSubmit={handleSubmit2}
@@ -147,7 +152,12 @@ function Home() {
                     id="platform"
                     onChange={handleChange2}
                   >
-                    <option className="text-center" disabled selected defaultValue="Select Platform">
+                    <option
+                      className="text-center"
+                      disabled
+                      selected
+                      defaultValue="Select Platform"
+                    >
                       Select Platform
                     </option>
                     <option value="xbl">Xbox</option>
@@ -211,7 +221,12 @@ function Home() {
                     id="platform"
                     onChange={handleChange2}
                   >
-                    <option className="text-center" disabled selected defaultValue="Select Platform">
+                    <option
+                      className="text-center"
+                      disabled
+                      selected
+                      defaultValue="Select Platform"
+                    >
                       Select Platform
                     </option>
                     <option value="xbl">Xbox</option>
@@ -243,7 +258,7 @@ function Home() {
           </div>
         </div>
 
-{/* end of form start of cards*/}
+        {/* end of form start of cards*/}
 
         <div className="card-container grid grid-cols-1 md:grid-cols-2 justify-items-center font-mono">
           <div className="player-card flex flex-col items-center justify-center ">
